@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:host {
+  --border-radius: 5px;
+  --primary-color: #1a76d1;
+  --text-color: #fff;
+  --main-font: "Poppins", sans-serif;
+}
+
+.business-infos {
+  color: var(--text-color);
+  font-family: var(--main-font);
+  padding: 30px;
+  display: grid;
+  gap: 15px;
+  grid-auto-flow: row;
+
+  &_tile {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease-out 0s;
+    padding: 30px;
+    position: relative;
+
+    /* shadow */
+    &::before {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 80%;
+      height: 90%;
+      background: #1a76d1;
+      opacity: 0;
+      filter: blur(10px);
+      transition: all 0.3s ease-out 0s;
+    }
+  }
+  &_tile-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  &_tile-icon-bg {
+    position: absolute;
+    font-size: 110px;
+    color: #fff;
+    transition: all 0.3s ease-out 0s;
+    visibility: visible;
+    opacity: 0.2;
+    right: -25px;
+    bottom: -30px;
+  }
+  &_tile-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  &_tile-category {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+  &_tile-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 13px;
+  }
+  &_tile-description {
+    font-size: 0.875rem;
+    margin-top: 22px;
+    line-height: 1.5rem;
+  }
+  &_tile-link {
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 25px;
+    display: inline-block;
+  }
+  &_tile-icon {
+    margin-left: 10px;
+  }
+  @media screen and (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+
+    &_tile--opening-hours {
+      grid-column: span 2;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    &_tile {
+      &:hover {
+        transform: translateY(-5px);
+        &::before {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &_tile--opening-hours {
+      grid-column: initial;
+    }
+
+    &_tile-link:hover {
+      text-decoration: underline;
+    }
+  }
+}
