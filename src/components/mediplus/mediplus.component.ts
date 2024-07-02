@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './mediplus.component.scss'
 })
 export class MediplusComponent {
-
+  
 }

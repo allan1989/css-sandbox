@@ -1,22 +1,39 @@
+/*
+
+https://www.fixate.it/blog/make-your-css-variable-names-suck-less
+
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :host {
   --border-radius: 5px;
-  --primary-color: #1a76d1;
-  --text-color: #fff;
+  --primary-brand-color: #1a76d1;
+  --secondary-brand-color: #fff;
+  --tertiary-brand-color: #db0084;
+
+  --color-base: #fff;
+  --color-base-light: #888;
+  --color-base-dark: #2c2d3f;
+  --color-section-title: #145e9a;
+  --color-section-date: #1c9bd4;
+
   --main-font: "Poppins", sans-serif;
 }
 
-.business-infos {
-  color: var(--text-color);
+main {
   font-family: var(--main-font);
+}
+
+.business-infos {
+  color: var(--color-base);
   padding: 30px;
   display: grid;
   gap: 15px;
   grid-auto-flow: row;
 
   &_tile {
-    background-color: var(--primary-color);
+    background-color: var(--primary-brand-color);
     border-radius: var(--border-radius);
     transition: all 0.3s ease-out 0s;
     padding: 30px;
@@ -33,7 +50,7 @@
       margin: 0 auto;
       width: 80%;
       height: 90%;
-      background: #1a76d1;
+      background: var(--primary-brand-color);
       opacity: 0;
       filter: blur(10px);
       transition: all 0.3s ease-out 0s;
@@ -47,7 +64,7 @@
   &_tile-icon-bg {
     position: absolute;
     font-size: 110px;
-    color: #fff;
+    color: var(--color-base);
     transition: all 0.3s ease-out 0s;
     visibility: visible;
     opacity: 0.2;
@@ -111,6 +128,296 @@
 
     &_tile-link:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+.services {
+  padding: 30px;
+  &_container {
+    max-width: 600px;
+    margin: 0 auto 24px auto;
+    text-align: center;
+  }
+  &_title {
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--color-base-dark);
+    line-height: 1.2;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      margin: 15px auto;
+      width: 48px;
+      height: 24px;
+      background: url("../../assets//mediplus/section-img.png") no-repeat center;
+    }
+  }
+  &_baseline {
+    font-size: 15px;
+    line-height: 24px;
+    color: var(--color-base-light);
+    margin-top: 15px;
+  }
+  &-offers {
+    &_tile {
+      position: relative;
+    }
+    &_content {
+      padding: 20px 0 20px 60px;
+    }
+    &_tile-icon {
+      font-size: 45px;
+      color: var(--primary-brand-color);
+      position: absolute;
+      left: 0;
+    }
+    &_tile-title {
+      font-size: 20px;
+      font-weight: 600;
+      text-transform: capitalize;
+      margin-bottom: 25px;
+      color: var(--color-base-dark);
+    }
+    &_tile-link {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    &_tile-description {
+      margin: 0;
+      line-height: 24px;
+      font-weight: 400;
+      color: var(--color-base-light);
+    }
+    @media screen and (min-width: 800px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    @media screen and (min-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+
+      &_tile-link {
+        &:hover {
+          color: var(--primary-brand-color);
+        }
+      }
+    }
+  }
+}
+
+.meteo {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 10px;
+  padding: 0 30px;
+  &_main-content {
+    display: grid;
+    grid-template-columns: inherit;
+    gap: 10px;
+  }
+  &_article-bulletin {
+    border: 1px solid #dee2e6;
+    background: var(--color-base);
+    border-radius: 5px;
+    padding: 10px 15px;
+    overflow: hidden;
+    position: relative;
+    &_img {
+      display: none;
+    }
+    &_tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      color: var(--color-base);
+      text-transform: uppercase;
+      height: 20px;
+      padding-left: 6px;
+      padding-right: 6px;
+      background: var(--tertiary-brand-color);
+      line-height: 20px;
+      display: none;
+    }
+    &_infos {
+      display: flex;
+      flex-direction: column;
+    }
+    &_date {
+      font-size: 0.875rem;
+      color: var(--primary-brand-color);
+      font-weight: 600;
+      line-height: 20px;
+      margin-bottom: 4px;
+    }
+    &_details {
+      color: var(--color-base-light);
+      font-size: 0.875rem;
+      line-height: 20px;
+      margin-bottom: 10px;
+    }
+    &_link {
+      color: var(--tertiary-brand-color);
+      text-transform: uppercase;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 400;
+      transition: all 0.3s ease-in-out;
+      display: inline-flex;
+      align-self: flex-end;
+    }
+    &_icon {
+      margin-left: 6px;
+    }
+  }
+  &_article-editorial {
+    border: 1px solid #dee2e6;
+    background: var(--color-base);
+    border-radius: 5px;
+    position: relative;
+
+    &_link {
+      text-decoration: none;
+    }
+
+    &_container {
+      padding: 10px 15px;
+    }
+
+    &_tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      color: var(--color-base);
+      text-transform: uppercase;
+      height: 20px;
+      padding-left: 6px;
+      padding-right: 6px;
+      background: var(--tertiary-brand-color);
+      line-height: 20px;
+    }
+    &_title {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: bold;
+      color: var(--color-section-title);
+      margin-bottom: 5px;
+    }
+    &_text {
+      font-size: 13px;
+      color: var(--color-base-light);
+      margin-top: 12px;
+      line-height: 15px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &_img-wrapper {
+      overflow: hidden;
+    }
+    &_img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  &_aside {
+    display: grid;
+    gap: 10px;
+    &-teaser {
+      border: 1px solid #dee2e6;
+      background: var(--color-base);
+      border-radius: 5px;
+      text-decoration: none;
+      &_img-wrapper {
+        display: none;
+      }
+      &_infos-wrapper {
+        padding: 10px;
+      }
+      &_title {
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: bold;
+        color: var(--color-section-title);
+        margin-bottom: 10px;
+      }
+      &_date {
+        font-size: 13px;
+        color: var(--color-section-date);
+      }
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    &_main-content {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    &_article-bulletin {
+      grid-column: 1 / -1;
+      padding: 0;
+
+      &_wrapper {
+        display: flex;
+      }
+
+      &_img {
+        display: block;
+        width: 236px;
+        height: 143px;
+      }
+
+      &_tag {
+        display: block;
+      }
+
+      &_infos {
+        padding: 8px 15px;
+      }
+
+      &_link {
+        &:hover {
+          color: var(--primary-brand-color);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    grid-template-columns: 70% 30%;
+    &_article-editorial {
+      &_img {
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover &_img {
+        transform: scale(1.2);
+      }
+    }
+    &_aside {
+      grid-template-rows: repeat(auto-fill, 75px);
+      &-teaser {
+        display: flex;
+        overflow: hidden;
+        &_img-wrapper {
+          display: block;
+        }
+        &_img {
+          height: 100%;
+          width: 80px;
+          object-fit: cover;
+        }
+      }
     }
   }
 }
