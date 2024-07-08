@@ -1,0 +1,28 @@
+<div class="item" [class.open]="isOpen" [class.last]="isLast">
+  <header class="item__header">
+    <span class="item__type">{{ type }}</span>
+    <span class="item__duration">
+      @if(duration) {
+      <i class="fa-regular fa-clock item__icon"></i>{{ duration }}
+      }
+    </span>
+    <span class="item__price">{{ price }} €</span>
+  </header>
+  <div class="item__description-wrapper">
+    <div class="item__description">
+      {{ description }}
+    </div>
+  </div>
+  <footer class="item__footer">
+    <div (click)="toggleItem()">
+      <span
+        class="item__footer-icon"
+        [ngClass]="isOpen ? 'closed' : 'opened'"
+      ></span>
+      d'infos
+    </div>
+    <div>
+      <a class="item__footer-link" href="#">Demande de RDV</a>
+    </div>
+  </footer>
+</div>

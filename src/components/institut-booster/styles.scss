@@ -1,0 +1,15 @@
+:host {
+  --color-background-default: #fff;
+  --color-background-dark: #071d34;
+  --color-background-light: #fefefe;
+  --color-brand-one: #fbb400;
+  --color-brand-two: #071d34;
+  --color-brand-three: #fefefe;
+  --color-brand-four: #FFF;
+
+  --font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+}
+
+.main {
+  font-family: var(--font-family);
+}
