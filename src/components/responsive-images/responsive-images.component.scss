@@ -1,0 +1,23 @@
+.container {
+    font-family: sans-serif;
+    border: 1px solid grey;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0.5rem;
+
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 2rem;
+        padding: 1rem 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding-bottom: 1.2rem;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
